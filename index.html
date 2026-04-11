@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Web Masjid Darussalam</title>
+
+    <meta property="og:title" content="Absensi Masjid Darussalam">
+    <meta property="og:description" content="Silakan isi daftar hadir jamaah Masjid Darussalam di sini.">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/2311/2311911.png">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2311/2311911.png" type="image/x-icon">
+
+    <style>
+        /* CSS: Desain agar terlihat seperti aplikasi HP */
+        :root {
+            --hijau-tua: #1b5e20;
+            --hijau-cerah: #2e7d32;
+            --putih: #ffffff;
+            --abu-bg: #f5f5f5;
+        }
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; padding: 0; 
+            background-color: var(--abu-bg); 
+            padding-bottom: 80px; 
+        }
+        .header {
+            background: linear-gradient(135deg, var(--hijau-tua), var(--hijau-cerah));
+            color: white; padding: 35px 20px; text-align: center;
+            border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .header h1 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
+
+        .container { padding: 20px; }
+        .card {
+            background: white; border-radius: 20px; padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px;
+        }
+
+        /* Navigasi Bawah */
+        .bottom-nav {
+            position: fixed; bottom: 0; width: 100%; background: white;
+            display: flex; border-top: 1px solid #eee; height: 70px;
+        }
+        .nav-item {
+            flex: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            color: #888; text-decoration: none; font-size: 12px;
+            background: none; border: none; font-weight: bold;
+        }
+        .nav-item.active { color: var(--hijau-cerah); }
+        .nav-item span { font-size: 24px; margin-bottom: 4px; }
+
+        /* Halaman */
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* Form */
+        label { display: block; font-weight: bold; margin-bottom: 8px; color: #444; }
+        input, select {
+            width: 100%; padding: 14px; margin-bottom: 20px;
+            border: 1px solid #ddd; border-radius: 12px; font-size: 16px;
+            box-sizing: border-box; background: #fff;
+        }
+        .btn-submit {
+            background: var(--hijau-cerah); color: white; width: 100%;
+            padding: 16px; border: none; border-radius: 12px;
+            font-size: 16px; font-weight: bold; box-shadow: 0 4px 10px rgba(46,125,50,0.3);
+        }
+        .btn-submit:disabled { background: #ccc; box-shadow: none; }
+
+        /* QRIS */
+        .qris-container { text-align: center; }
+        .qris-img {
+            width: 100%; max-width: 280px; border: 8px solid #fff;
+            border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Masjid Darussalam</h1>
+        <p>Absensi & Infaq Digital</p>
+    </div>
+
+    <div class="container">
+        <div id="page-absen" class="page active">
+            <div class="card">
+                <h3 style="margin-top:0; color:var(--hijau-tua)">📝 Absensi Jama'ah</h3>
+                <form id="formAbsen">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="nama" placeholder="Ketik nama Anda..." required>
+                    
+                    <label>Tujuan / Kegiatan</label>
+                    <select id="tujuan" required>
+                        <option value="Sholat Berjamaah">Sholat Berjamaah</option>
+                        <option value="Kajian Rutin">Kajian Rutin</option>
+                        <option value="I'tikaf">I'tikaf</option>
+                        <option value="Ziarah">Ziarah</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                    
+                    <button type="submit" id="btnKirim" class="btn-submit">Kirim Kehadiran</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="page-qris" class="page">
+            <div class="card qris-container">
+                <h3 style="margin-top:0; color:var(--hijau-tua)">🕌 Infaq & Sedekah</h3>
+                <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                    Mari berinfaq untuk kemakmuran Masjid Darussalam melalui QRIS di bawah ini.
+                </p>
+                
+                <img src="https://placehold.co/300x300/1b5e20/white?text=QRIS+Segera+Hadir" 
+                     alt="QRIS Masjid" class="qris-img">
+                
+                <p style="margin-top:20px; font-weight:bold; color:var(--hijau-tua)">DKM Masjid Darussalam</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <button class="nav-item active" id="nav-absen" onclick="bukaTab('absen')">
+            <span>📝</span>Absen
+        </button>
+        <button class="nav-item" id="nav-qris" onclick="bukaTab('qris')">
+            <span>💰</span>Infaq QRIS
+        </button>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyT9CmTEtkXR7-5iwNPZ8kCth6ciPU-2lka8gJ4U0kbxZFNcRpRtVKunFZq2-HEMISq3g/exec'; 
+
+        const form = document.getElementById('formAbsen');
+        const btnKirim = document.getElementById('btnKirim');
+
+        function bukaTab(tab) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            document.getElementById('page-' + tab).classList.add('active');
+            document.getElementById('nav-' + tab).classList.add('active');
+        }
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btnKirim.disabled = true;
+            btnKirim.innerHTML = '⏳ Menyimpan...';
+
+            let dataInput = new FormData();
+            dataInput.append('Nama', document.getElementById('nama').value);
+            dataInput.append('Tujuan', document.getElementById('tujuan').value);
+            dataInput.append('Waktu', new Date().toLocaleString('id-ID'));
+
+            fetch(scriptURL, { method: 'POST', body: dataInput})
+            .then(response => {
+                alert('Alhamdulillah, kehadiran berhasil dicatat.');
+                form.reset();
+                btnKirim.disabled = false;
+                btnKirim.innerHTML = 'Kirim Kehadiran';
+            })
+            .catch(error => {
+                alert('Gagal mengirim. Periksa koneksi internet Anda.');
+                btnKirim.disabled = false;
+                btnKirim.innerHTML = 'Kirim Kehadiran';
+            });
+        });
+    </script>
+</body>
+</html>
+
