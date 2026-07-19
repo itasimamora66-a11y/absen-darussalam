@@ -13,24 +13,25 @@
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2311/2311911.png" type="image/x-icon">
 
     <style>
-        /* CSS: Desain agar terlihat seperti aplikasi HP */
         :root {
             --hijau-tua: #1b5e20;
             --hijau-cerah: #2e7d32;
-            --putih: #ffffff;
-            --abu-bg: #f5f5f5;
         }
         body { 
             font-family: 'Segoe UI', sans-serif; 
             margin: 0; padding: 0; 
-            background-color: var(--abu-bg); 
             padding-bottom: 80px; 
+            /* Latar belakang menggunakan gambar 209206-clean.png */
+            background-image: url('209206-clean.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
         
-        /* Modifikasi Header untuk Logo Kanan Kiri */
         .header {
-            background: linear-gradient(135deg, var(--hijau-tua), var(--hijau-cerah));
-            color: white; 
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--hijau-tua); 
             padding: 20px 15px; 
             text-align: center;
             border-bottom-left-radius: 30px; 
@@ -40,30 +41,24 @@
             align-items: center; 
             justify-content: space-between;
         }
-        .header-text {
-            flex: 1;
-        }
+        .header-text { flex: 1; }
         .header h1 { margin: 0; font-size: 20px; }
-        .header p { margin: 5px 0 0; font-size: 12px; opacity: 0.9; }
+        .header p { margin: 5px 0 0; font-size: 12px; opacity: 0.8; }
         
-        /* Ukuran seragam untuk kedua logo */
         .logo-header {
-            width: 45px;
-            height: 45px;
+            width: 45px; height: 45px;
             object-fit: cover;
             border-radius: 50%;
-            background-color: white;
-            border: 2px solid white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border: 2px solid var(--hijau-cerah);
         }
 
         .container { padding: 20px; }
         .card {
-            background: white; border-radius: 20px; padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.95); 
+            border-radius: 20px; padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px;
         }
 
-        /* Navigasi Bawah */
         .bottom-nav {
             position: fixed; bottom: 0; width: 100%; background: white;
             display: flex; border-top: 1px solid #eee; height: 70px;
@@ -77,11 +72,9 @@
         .nav-item.active { color: var(--hijau-cerah); }
         .nav-item span { font-size: 24px; margin-bottom: 4px; }
 
-        /* Halaman */
         .page { display: none; }
         .page.active { display: block; }
 
-        /* Form */
         label { display: block; font-weight: bold; margin-bottom: 8px; color: #444; }
         input, select {
             width: 100%; padding: 14px; margin-bottom: 20px;
@@ -89,29 +82,19 @@
             box-sizing: border-box; background: #fff;
         }
         
-        /* Tombol Utama */
         .btn-submit {
             background: var(--hijau-cerah); color: white; width: 100%;
             padding: 16px; border: none; border-radius: 12px;
             font-size: 16px; font-weight: bold; box-shadow: 0 4px 10px rgba(46,125,50,0.3);
             box-sizing: border-box;
         }
-        .btn-submit:disabled { background: #ccc; box-shadow: none; }
-
-        /* Pesan Sukses */
+        
         #pesanSukses {
-            display: none; 
-            color: var(--hijau-tua); 
-            font-weight: bold; 
-            margin-bottom: 20px; 
-            text-align: center; 
-            background: #e8f5e9; 
-            padding: 12px; 
-            border-radius: 8px;
-            border: 1px solid #c8e6c9;
+            display: none; color: var(--hijau-tua); font-weight: bold; 
+            margin-bottom: 20px; text-align: center; background: #e8f5e9; 
+            padding: 12px; border-radius: 8px; border: 1px solid #c8e6c9;
         }
 
-        /* QRIS & Tombol WA */
         .qris-container { text-align: center; }
         .qris-img {
             width: 100%; max-width: 280px; border: 8px solid #fff;
@@ -130,16 +113,16 @@
 <body>
 
     <div class="header">
-        <!-- Logo Kiri -->
-        <img src="209194-photoaidcom-cropped.jpg.png" alt="Logo DKM" class="logo-header">
+        <!-- Logo di Kiri sekarang adalah Logo Biru 'R' -->
+        <img src="209196-photoaidcom-cropped.jpg (2).png" alt="Logo Pemuda" class="logo-header">
         
         <div class="header-text">
             <h1>Masjid Darussalam</h1>
             <p>Absensi & Infaq Digital</p>
         </div>
         
-        <!-- Logo Kanan -->
-        <img src="209196-photoaidcom-cropped.jpg (2).png" alt="Logo Pemuda" class="logo-header">
+        <!-- Logo di Kanan sekarang adalah Logo DKM Hijau -->
+        <img src="209194-photoaidcom-cropped.jpg.png" alt="Logo DKM" class="logo-header">
     </div>
 
     <div class="container">
@@ -181,14 +164,12 @@
 
                 <h4 style="margin: 0 0 10px 0; color: #444;">Sudah Berinfaq?</h4>
                 <p style="font-size: 13px; color: #666; margin-bottom: 15px;">
-                    Semoga Allah membalas kebaikan Anda. Silakan kirimkan tangkapan layar (screenshot) bukti transaksi Anda untuk pendataan.
+                    Silakan kirimkan tangkapan layar bukti transaksi Anda.
                 </p>
                 
-                <!-- Tautan WhatsApp -->
                 <a href="https://wa.me/62895637310335?text=Assalamualaikum,%20saya%20ingin%20mengirimkan%20bukti%20transaksi%20infaq%20melalui%20QRIS%20Masjid%20Darussalam." target="_blank" class="btn-wa">
                     📱 Kirim Bukti Transaksi di Sini
                 </a>
-
             </div>
         </div>
     </div>
@@ -197,14 +178,13 @@
         <button class="nav-item active" id="nav-absen" onclick="bukaTab('absen')">
             <span>📝</span>Absen
         </button>
-        <button class="nav-item" id="nav-qris" onclick="bukaTab('qris')">
+        <button class="nav-item" id="nav-qris" onclick="bukaTab('nav-qris')" onclick="bukaTab('qris')">
             <span>💰</span>Infaq QRIS
         </button>
     </div>
 
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyT9CmTEtkXR7-5iwNPZ8kCth6ciPU-2lka8gJ4U0kbxZFNcRpRtVKunFZq2-HEMISq3g/exec'; 
-
         const form = document.getElementById('formAbsen');
         const btnKirim = document.getElementById('btnKirim');
         const pesanSukses = document.getElementById('pesanSukses');
@@ -212,7 +192,6 @@
         function bukaTab(tab) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            
             document.getElementById('page-' + tab).classList.add('active');
             document.getElementById('nav-' + tab).classList.add('active');
         }
@@ -222,22 +201,17 @@
             btnKirim.disabled = true;
             btnKirim.innerHTML = '⏳ Menyimpan...';
             pesanSukses.style.display = 'none';
-
             let dataInput = new FormData();
             dataInput.append('Nama', document.getElementById('nama').value);
             dataInput.append('Tujuan', document.getElementById('tujuan').value);
             dataInput.append('Waktu', new Date().toLocaleString('id-ID'));
-
             fetch(scriptURL, { method: 'POST', body: dataInput})
             .then(response => {
                 pesanSukses.style.display = 'block';
                 form.reset();
                 btnKirim.disabled = false;
                 btnKirim.innerHTML = 'Kirim Kehadiran';
-
-                setTimeout(() => {
-                    pesanSukses.style.display = 'none';
-                }, 5000);
+                setTimeout(() => { pesanSukses.style.display = 'none'; }, 5000);
             })
             .catch(error => {
                 alert('Gagal mengirim. Periksa koneksi internet Anda.');
@@ -248,4 +222,3 @@
     </script>
 </body>
 </html>
-
