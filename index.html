@@ -26,14 +26,36 @@
             background-color: var(--abu-bg); 
             padding-bottom: 80px; 
         }
+        
+        /* Modifikasi Header untuk Logo Kanan Kiri */
         .header {
             background: linear-gradient(135deg, var(--hijau-tua), var(--hijau-cerah));
-            color: white; padding: 35px 20px; text-align: center;
-            border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+            color: white; 
+            padding: 20px 15px; 
+            text-align: center;
+            border-bottom-left-radius: 30px; 
+            border-bottom-right-radius: 30px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between;
         }
-        .header h1 { margin: 0; font-size: 24px; }
-        .header p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
+        .header-text {
+            flex: 1;
+        }
+        .header h1 { margin: 0; font-size: 20px; }
+        .header p { margin: 5px 0 0; font-size: 12px; opacity: 0.9; }
+        
+        /* Ukuran seragam untuk kedua logo */
+        .logo-header {
+            width: 45px;
+            height: 45px;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
 
         .container { padding: 20px; }
         .card {
@@ -66,10 +88,13 @@
             border: 1px solid #ddd; border-radius: 12px; font-size: 16px;
             box-sizing: border-box; background: #fff;
         }
+        
+        /* Tombol Utama */
         .btn-submit {
             background: var(--hijau-cerah); color: white; width: 100%;
             padding: 16px; border: none; border-radius: 12px;
             font-size: 16px; font-weight: bold; box-shadow: 0 4px 10px rgba(46,125,50,0.3);
+            box-sizing: border-box;
         }
         .btn-submit:disabled { background: #ccc; box-shadow: none; }
 
@@ -92,9 +117,10 @@
             width: 100%; max-width: 280px; border: 8px solid #fff;
             border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+        
         .btn-wa {
             background: #25D366; color: white; width: 100%;
-            padding: 14px; border: none; border-radius: 12px;
+            padding: 16px; border: none; border-radius: 12px;
             font-size: 16px; font-weight: bold; box-shadow: 0 4px 10px rgba(37,211,102,0.3);
             text-decoration: none; display: inline-block; box-sizing: border-box;
             margin-top: 10px;
@@ -104,8 +130,16 @@
 <body>
 
     <div class="header">
-        <h1>Masjid Darussalam</h1>
-        <p>Absensi & Infaq Digital</p>
+        <!-- Logo Kiri -->
+        <img src="209194-photoaidcom-cropped.jpg.png" alt="Logo DKM" class="logo-header">
+        
+        <div class="header-text">
+            <h1>Masjid Darussalam</h1>
+            <p>Absensi & Infaq Digital</p>
+        </div>
+        
+        <!-- Logo Kanan -->
+        <img src="209196-photoaidcom-cropped.jpg (2).png" alt="Logo Pemuda" class="logo-header">
     </div>
 
     <div class="container">
@@ -143,7 +177,6 @@
                 
                 <p style="margin-top:15px; font-weight:bold; color:var(--hijau-tua)">DKM Masjid Darussalam</p>
 
-                <!-- Garis Pemisah -->
                 <hr style="border: 0; border-top: 1px dashed #ccc; margin: 20px 0;">
 
                 <h4 style="margin: 0 0 10px 0; color: #444;">Sudah Berinfaq?</h4>
@@ -215,3 +248,4 @@
     </script>
 </body>
 </html>
+
