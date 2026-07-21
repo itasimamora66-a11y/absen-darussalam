@@ -3,28 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Web Masjid Darussalam (3D Neumorphism)</title>
+    <title>Web Masjid Darussalam</title>
 
     <style>
         :root {
-            /* Warna Utama Masjid */
-            --primary-dark: #0a3622;
-            --primary-main: #198754;
-            --primary-light: #d1e7dd;
-            
-            /* Abu-abu Lembut untuk Latar Belakang Neumorphic */
-            --neumorphic-bg: #e0e5ec; 
-            
-            /* Warna Teks */
-            --text-main: #2b3035;
+            --primary-dark: #072e1c;
+            --primary-main: #137547;
+            --primary-light: #28a745;
+            --text-main: #212529;
             --text-muted: #6c757d;
-
-            /* Definisi Bayangan dan Highlight */
-            --shadow-dark: #a3b1c6; /* Bayangan gelap */
-            --shadow-light: #ffffff; /* Highlight terang */
         }
 
-        /* Reset CSS */
         * { box-sizing: border-box; }
 
         body { 
@@ -32,26 +21,27 @@
             margin: 0; 
             padding: 0; 
             padding-bottom: 95px; 
-            /* Latar belakang harus memiliki warna yang solid agar efek shadow terlihat */
-            background-color: var(--neumorphic-bg);
+            /* Mengembalikan background motif masjid dengan overlay gradasi hijau profesional */
+            background-color: #0a3622;
+            background-image: linear-gradient(135deg, rgba(10, 54, 34, 0.88), rgba(7, 46, 28, 0.94)), url('209206-clean.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: var(--text-main);
             -webkit-font-smoothing: antialiased;
-            /* Menghapus background image agar efek 3D lebih menonjol, atau bisa dikembalikan dengan opacity yang sangat rendah */
-            /* background-image: linear-gradient(rgba(224, 229, 236, 0.85), rgba(224, 229, 236, 0.9)), url('209206-clean.png'); */
         }
         
-        /* Header Neumorphic */
+        /* Header dengan Efek 3D Mengambang */
         .header {
-            background: var(--neumorphic-bg);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
             color: var(--primary-dark); 
             padding: 14px 18px; 
             text-align: center;
-            border-bottom-left-radius: 28px; 
-            border-bottom-right-radius: 28px;
-            /* Header dibuat seolah-olah timbul di atas body */
-            box-shadow: 
-                8px 8px 16px var(--shadow-dark), 
-                -8px -8px 16px var(--shadow-light);
+            border-bottom-left-radius: 24px; 
+            border-bottom-right-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(255, 255, 255, 0.5) inset;
             display: flex; 
             align-items: center; 
             justify-content: space-between;
@@ -67,27 +57,27 @@
             width: 42px; height: 42px;
             object-fit: cover;
             border-radius: 50%;
-            border: 2px solid var(--primary-light);
-            box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+            border: 2px solid var(--primary-main);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
-        /* Container & Card */
-        .container { max-width: 480px; margin: 0 auto; padding: 25px 16px; }
+        /* Container & Card 3D */
+        .container { max-width: 480px; margin: 0 auto; padding: 22px 16px; }
         
         .card {
-            /* Card dibuat seolah-olah timbul di atas body */
-            background: var(--neumorphic-bg); 
+            background: rgba(255, 255, 255, 0.96); 
+            backdrop-filter: blur(10px);
             border-radius: 24px; 
-            padding: 30px 24px;
-            box-shadow: 
-                12px 12px 24px var(--shadow-dark), 
-                -12px -12px 24px var(--shadow-light);
-            margin-bottom: 25px;
+            padding: 26px 20px;
+            /* Efek 3D mengambang (Floating Card) yang kuat */
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(255, 255, 255, 0.8) inset;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
         .card h3 {
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-size: 18px;
             font-weight: 700;
             color: var(--primary-dark);
@@ -96,19 +86,18 @@
             gap: 10px;
         }
 
-        /* Navigasi Bawah */
+        /* Navigasi Bawah 3D Mengambang */
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; 
             max-width: 480px; margin: 0 auto;
-            background: var(--neumorphic-bg);
-            /* Navbar dibuat seolah-olah melayang di atas body dengan bayangan lebih halus */
-            box-shadow: 0 -8px 24px rgba(0,0,0,0.07);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(15px);
             display: flex; 
-            border-top: 1px solid rgba(255, 255, 255, 0.5); 
             height: 75px;
             z-index: 1000;
             border-top-left-radius: 24px;
             border-top-right-radius: 24px;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(255, 255, 255, 0.8) inset;
         }
         
         .nav-item {
@@ -118,126 +107,124 @@
             background: none; border: none; font-weight: 600;
             transition: all 0.2s ease-in-out;
             cursor: pointer;
-            border-radius: 24px;
+            border-radius: 20px;
+            margin: 6px;
         }
         .nav-item.active { 
-            color: var(--primary-main); 
-            /* Tombol aktif dibuat seolah-olah tertekan ke dalam */
-            background: var(--neumorphic-bg);
-            box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+            color: white; 
+            background: linear-gradient(135deg, var(--primary-main), var(--primary-dark));
+            box-shadow: 0 6px 15px rgba(19, 117, 71, 0.4), inset 0 1px 2px rgba(255,255,255,0.4);
         }
         .nav-item span { 
-            font-size: 22px; 
-            margin-bottom: 3px;
+            font-size: 20px; 
+            margin-bottom: 2px;
             transition: transform 0.2s ease;
         }
         .nav-item.active span {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .page { display: none; animation: fadeIn 0.3s ease-in-out; }
         .page.active { display: block; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Formulir (Input Neumorphic) */
+        /* Formulir */
         label {
             display: block;
             font-size: 13px;
             font-weight: 600;
             color: var(--text-main);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         input, select {
             width: 100%; 
-            padding: 16px 18px; 
-            margin-bottom: 20px;
-            border: none; 
-            border-radius: 16px; 
+            padding: 15px 16px; 
+            margin-bottom: 18px;
+            border: 1.5px solid #dcdcdc; 
+            border-radius: 14px; 
             font-size: 15px;
             box-sizing: border-box;
-            /* Input dibuat seolah-olah tertekan ke dalam */
-            background-color: var(--neumorphic-bg);
+            background-color: #fcfcfc;
             color: var(--text-main);
-            box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
-            transition: all 0.3s ease;
+            /* Efek cekung 3D (inset shadow) pada kolom input */
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.06);
+            transition: all 0.25s ease;
         }
 
         input:focus, select:focus {
             outline: none;
-            box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light), 0 0 0 3px var(--primary-light);
+            border-color: var(--primary-main);
+            background-color: #fff;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04), 0 0 0 4px rgba(19, 117, 71, 0.15);
         }
         
-        /* Tombol Neumorphic */
+        /* Tombol Utama 3D Timbul */
         .btn-submit {
-            background: var(--primary-main); /* Warna hijau dasar */
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark)); 
             color: white; 
             width: 100%;
-            padding: 18px; 
+            padding: 16px; 
             border: none; 
-            border-radius: 16px;
+            border-radius: 14px;
             font-size: 16px; 
             font-weight: 700;
             cursor: pointer;
-            /* Tombol memiliki efek timbul */
-            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+            /* Efek tombol 3D menonjol keluar */
+            box-shadow: 0 8px 20px rgba(19, 117, 71, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.4);
             transition: all 0.2s ease;
         }
 
         .btn-submit:active {
             transform: scale(0.98);
-            /* Tombol saat diklik menjadi seolah-olah tertekan */
-            box-shadow: inset 6px 6px 12px rgba(0,0,0,0.2), inset -6px -6px 12px var(--primary-main);
-            background: var(--primary-dark);
+            box-shadow: 0 3px 10px rgba(19, 117, 71, 0.3), inset 0 1px 2px rgba(0, 0, 0, 0.2);
         }
         
         /* QRIS & Tombol WhatsApp */
         .qris-container { text-align: center; }
         .qris-img { 
             width: 100%; 
-            max-width: 220px; 
-            border-radius: 20px; 
-            border: 1px solid rgba(224, 229, 236, 0.5);
-            /* Gambar seolah-olah timbul */
-            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
-            margin: 15px 0;
-            padding: 5px;
+            max-width: 230px; 
+            border-radius: 16px; 
+            border: 1px solid #ddd;
+            /* Gambar QRIS dibuat timbul */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12), inset 0 1px 2px rgba(255,255,255,0.8);
+            margin: 12px 0;
+            padding: 6px;
             background: white;
         }
 
         .qris-container p {
             font-size: 13px;
             color: var(--text-muted);
-            margin: 18px 0;
+            margin: 16px 0;
         }
         
         .btn-wa {
-            background: #25D366; /* Warna hijau WhatsApp */
+            background: linear-gradient(135deg, #25D366, #128C7E); 
             color: white; 
             width: 100%;
-            padding: 18px; 
+            padding: 16px; 
             border: none; 
-            border-radius: 16px;
+            border-radius: 14px;
             font-size: 16px; 
             font-weight: 700; 
             text-decoration: none;
             display: block; 
             box-sizing: border-box; 
             text-align: center;
-            /* Tombol memiliki efek timbul */
-            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+            /* Efek 3D menonjol untuk tombol WhatsApp */
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.4);
             transition: all 0.2s ease;
         }
 
         .btn-wa:active {
             transform: scale(0.98);
-            /* Tombol saat diklik menjadi seolah-olah tertekan */
-            box-shadow: inset 6px 6px 12px rgba(0,0,0,0.2), inset -6px -6px 12px #1ebe57;
-            background: #1ebe57;
+            box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3), inset 0 1px 2px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -278,7 +265,7 @@
             <div class="card qris-container">
                 <h3>🕌 Infaq & Sedekah</h3>
                 <img src="IMG_20260719_225515_701.png" alt="QRIS" class="qris-img">
-                <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.05); margin: 20px 0;">
+                <hr style="border: none; border-top: 1px solid #eee; margin: 18px 0;">
                 <p>Sudah berinfaq? Konfirmasikan transaksi Anda melalui WhatsApp:</p>
                 <a href="https://wa.me/62895637310335?text=Assalamualaikum,%20saya%20ingin%20mengirimkan%20bukti%20transaksi%20infaq." class="btn-wa">
                     📱 Kirim Bukti Transaksi
