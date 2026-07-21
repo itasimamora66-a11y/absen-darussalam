@@ -3,43 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Web Masjid Darussalam</title>
+    <title>Web Masjid Darussalam (3D Neumorphism)</title>
 
     <style>
         :root {
+            /* Warna Utama Masjid */
             --primary-dark: #0a3622;
             --primary-main: #198754;
             --primary-light: #d1e7dd;
-            --bg-color: #f4f7f6;
+            
+            /* Abu-abu Lembut untuk Latar Belakang Neumorphic */
+            --neumorphic-bg: #e0e5ec; 
+            
+            /* Warna Teks */
             --text-main: #2b3035;
             --text-muted: #6c757d;
+
+            /* Definisi Bayangan dan Highlight */
+            --shadow-dark: #a3b1c6; /* Bayangan gelap */
+            --shadow-light: #ffffff; /* Highlight terang */
         }
+
+        /* Reset CSS */
+        * { box-sizing: border-box; }
 
         body { 
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
             margin: 0; 
             padding: 0; 
-            padding-bottom: 85px; 
-            background-color: var(--bg-color);
-            background-image: linear-gradient(rgba(10, 54, 34, 0.45), rgba(10, 54, 34, 0.65)), url('209206-clean.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            padding-bottom: 95px; 
+            /* Latar belakang harus memiliki warna yang solid agar efek shadow terlihat */
+            background-color: var(--neumorphic-bg);
             color: var(--text-main);
             -webkit-font-smoothing: antialiased;
+            /* Menghapus background image agar efek 3D lebih menonjol, atau bisa dikembalikan dengan opacity yang sangat rendah */
+            /* background-image: linear-gradient(rgba(224, 229, 236, 0.85), rgba(224, 229, 236, 0.9)), url('209206-clean.png'); */
         }
         
-        /* Header Lebih Rapat & Elegan */
+        /* Header Neumorphic */
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: var(--neumorphic-bg);
             color: var(--primary-dark); 
-            padding: 12px 16px; 
+            padding: 14px 18px; 
             text-align: center;
-            border-bottom-left-radius: 20px; 
-            border-bottom-right-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-bottom-left-radius: 28px; 
+            border-bottom-right-radius: 28px;
+            /* Header dibuat seolah-olah timbul di atas body */
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark), 
+                -8px -8px 16px var(--shadow-light);
             display: flex; 
             align-items: center; 
             justify-content: space-between;
@@ -47,53 +59,56 @@
             top: 0;
             z-index: 100;
         }
-        .header-text { flex: 1; padding: 0 8px; }
-        .header h1 { margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
-        .header p { margin: 2px 0 0; font-size: 11px; font-weight: 600; color: var(--primary-main); }
+        .header-text { flex: 1; padding: 0 10px; }
+        .header h1 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+        .header p { margin: 3px 0 0; font-size: 12px; font-weight: 600; color: var(--primary-main); }
         
         .logo-header {
-            width: 38px; height: 38px;
+            width: 42px; height: 42px;
             object-fit: cover;
             border-radius: 50%;
-            border: 2px solid var(--primary-main);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 2px solid var(--primary-light);
+            box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
         }
 
         /* Container & Card */
-        .container { max-width: 480px; margin: 0 auto; padding: 14px 14px; }
+        .container { max-width: 480px; margin: 0 auto; padding: 25px 16px; }
         
         .card {
-            background: rgba(255, 255, 255, 0.96); 
-            backdrop-filter: blur(8px);
-            border-radius: 16px; 
-            padding: 18px 16px;
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08); 
-            margin-bottom: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            /* Card dibuat seolah-olah timbul di atas body */
+            background: var(--neumorphic-bg); 
+            border-radius: 24px; 
+            padding: 30px 24px;
+            box-shadow: 
+                12px 12px 24px var(--shadow-dark), 
+                -12px -12px 24px var(--shadow-light);
+            margin-bottom: 25px;
         }
 
         .card h3 {
             margin-top: 0;
-            margin-bottom: 14px;
-            font-size: 16px;
+            margin-bottom: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--primary-dark);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         /* Navigasi Bawah */
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; 
             max-width: 480px; margin: 0 auto;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(12px);
+            background: var(--neumorphic-bg);
+            /* Navbar dibuat seolah-olah melayang di atas body dengan bayangan lebih halus */
+            box-shadow: 0 -8px 24px rgba(0,0,0,0.07);
             display: flex; 
-            border-top: 1px solid rgba(0, 0, 0, 0.06); 
-            height: 65px;
+            border-top: 1px solid rgba(255, 255, 255, 0.5); 
+            height: 75px;
             z-index: 1000;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
         }
         
         .nav-item {
@@ -103,107 +118,127 @@
             background: none; border: none; font-weight: 600;
             transition: all 0.2s ease-in-out;
             cursor: pointer;
+            border-radius: 24px;
         }
         .nav-item.active { 
             color: var(--primary-main); 
+            /* Tombol aktif dibuat seolah-olah tertekan ke dalam */
+            background: var(--neumorphic-bg);
+            box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
         }
         .nav-item span { 
-            font-size: 20px; 
-            margin-bottom: 2px;
+            font-size: 22px; 
+            margin-bottom: 3px;
             transition: transform 0.2s ease;
         }
         .nav-item.active span {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
-        .page { display: none; animation: fadeIn 0.25s ease-in-out; }
+        .page { display: none; animation: fadeIn 0.3s ease-in-out; }
         .page.active { display: block; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Formulir */
+        /* Formulir (Input Neumorphic) */
         label {
             display: block;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--text-main);
-            margin-bottom: 6px;
+            margin-bottom: 10px;
         }
 
         input, select {
             width: 100%; 
-            padding: 12px 14px; 
-            margin-bottom: 14px;
-            border: 1.5px solid #e0e0e0; 
-            border-radius: 10px; 
-            font-size: 14px;
+            padding: 16px 18px; 
+            margin-bottom: 20px;
+            border: none; 
+            border-radius: 16px; 
+            font-size: 15px;
             box-sizing: border-box;
-            background-color: #fafafa;
+            /* Input dibuat seolah-olah tertekan ke dalam */
+            background-color: var(--neumorphic-bg);
             color: var(--text-main);
-            transition: all 0.2s ease;
+            box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+            transition: all 0.3s ease;
         }
 
         input:focus, select:focus {
             outline: none;
-            border-color: var(--primary-main);
-            background-color: #fff;
-            box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.12);
+            box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light), 0 0 0 3px var(--primary-light);
         }
         
+        /* Tombol Neumorphic */
         .btn-submit {
-            background: linear-gradient(135deg, var(--primary-main), var(--primary-dark)); 
+            background: var(--primary-main); /* Warna hijau dasar */
             color: white; 
             width: 100%;
-            padding: 14px; 
+            padding: 18px; 
             border: none; 
-            border-radius: 10px;
-            font-size: 14px; 
-            font-weight: 600;
+            border-radius: 16px;
+            font-size: 16px; 
+            font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(25, 135, 84, 0.3);
+            /* Tombol memiliki efek timbul */
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
             transition: all 0.2s ease;
         }
 
-        .btn-submit:active { transform: scale(0.98); }
+        .btn-submit:active {
+            transform: scale(0.98);
+            /* Tombol saat diklik menjadi seolah-olah tertekan */
+            box-shadow: inset 6px 6px 12px rgba(0,0,0,0.2), inset -6px -6px 12px var(--primary-main);
+            background: var(--primary-dark);
+        }
         
         /* QRIS & Tombol WhatsApp */
         .qris-container { text-align: center; }
         .qris-img { 
             width: 100%; 
-            max-width: 210px; 
-            border-radius: 14px; 
-            border: 1px solid #eee;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-            margin: 8px 0;
+            max-width: 220px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(224, 229, 236, 0.5);
+            /* Gambar seolah-olah timbul */
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+            margin: 15px 0;
+            padding: 5px;
+            background: white;
         }
 
         .qris-container p {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-muted);
-            margin: 12px 0;
+            margin: 18px 0;
         }
         
         .btn-wa {
-            background: linear-gradient(135deg, #25D366, #1ebe57); 
+            background: #25D366; /* Warna hijau WhatsApp */
             color: white; 
             width: 100%;
-            padding: 13px; 
+            padding: 18px; 
             border: none; 
-            border-radius: 10px;
-            font-size: 14px; 
-            font-weight: 600; 
+            border-radius: 16px;
+            font-size: 16px; 
+            font-weight: 700; 
             text-decoration: none;
             display: block; 
             box-sizing: border-box; 
             text-align: center;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            /* Tombol memiliki efek timbul */
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
             transition: all 0.2s ease;
         }
 
-        .btn-wa:active { transform: scale(0.98); }
+        .btn-wa:active {
+            transform: scale(0.98);
+            /* Tombol saat diklik menjadi seolah-olah tertekan */
+            box-shadow: inset 6px 6px 12px rgba(0,0,0,0.2), inset -6px -6px 12px #1ebe57;
+            background: #1ebe57;
+        }
     </style>
 </head>
 <body>
@@ -243,8 +278,8 @@
             <div class="card qris-container">
                 <h3>🕌 Infaq & Sedekah</h3>
                 <img src="IMG_20260719_225515_701.png" alt="QRIS" class="qris-img">
-                <hr style="border: none; border-top: 1px solid #eee; margin: 15px 0;">
-                <p>Sudah berinfaq? Konfirmasikan transaksi Anda:</p>
+                <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.05); margin: 20px 0;">
+                <p>Sudah berinfaq? Konfirmasikan transaksi Anda melalui WhatsApp:</p>
                 <a href="https://wa.me/62895637310335?text=Assalamualaikum,%20saya%20ingin%20mengirimkan%20bukti%20transaksi%20infaq." class="btn-wa">
                     📱 Kirim Bukti Transaksi
                 </a>
